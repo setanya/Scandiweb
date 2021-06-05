@@ -1,0 +1,120 @@
+*{
+    margin: 0 auto;
+    padding: 0px;
+}
+#productList{
+    margin-top:2%;
+    width: 98%;
+}
+/*block title*/
+.title{
+    display: inline-block;
+    border-bottom: 2px solid black;
+    width: 100%;
+    padding-bottom: 5px;
+}
+.list{
+    display: inline-block;
+}
+.button{
+    float: right;
+    display: inline-flex;
+    justify-content: space-between;
+}
+.button>button,
+.button>a {
+    border: 2px solid black;
+    box-shadow: 3px 3px 0px 0px #000000;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-right: 30px;
+    margin-top: 2%;
+    font-weight: bold;
+}
+/*block-assortment*/
+#blockProducts{
+    width: 100%;
+    border-bottom: 2px solid black;
+
+}
+.products{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-around;
+    justify-content: center;
+}
+.productCard{
+    padding-bottom: 2%;
+    padding-top: 2%;
+}
+.choose{
+    width: 30px;
+    height: 30px;
+    border: 2px solid black;
+    text-align: center;
+    margin-left: 3%;
+    margin-top: 3%;
+}
+.textCard{
+    text-align: center;
+    font-weight: bold;
+    padding-bottom: 20%;
+}
+.textCard>p{
+    margin-bottom: 1px;
+}
+.check{
+    margin-top: 5%;
+    margin-left: 5%;
+}
+div.footer{
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+}
+/*Form str*/
+#formAdd{
+    margin-top:2%;
+    width: 80%;
+}
+.form{
+    border-bottom: 2px solid black;
+}
+.option{
+    display: inline-block;
+}
+.blockForm{
+    margin: 22px;
+}
+.optionDimension input{
+    margin-bottom: 20px;
+}
+.optionSize{
+    border: 2px solid #06e738;
+}
+.optionWeight{
+    border: 2px solid #052ae3;
+}
+.optionDimension{
+    border: 2px solid #a60ae0;
+}
+/*str error*/
+.error{
+    margin:0 auto;
+    height: 800px;
+    padding-top: 5%;
+    background-color: #a2a1a1
+}
+.error_text, .error_title{
+    font-size: 50px;
+    padding-top: 5%;
+    color: #ffffff;
+}
+.link_error{
+    color: #ae0654;
+    font-size: x-large;
+}
+.error>p{
+    text-align: center;
+}
