@@ -6,9 +6,9 @@ class Router
     public static $routers = [];
     public static $route = [''];
 
-    /** * @param $route [page/about] => Array([controller] => page[action] => about )
+    /** * @param $route [page/form] => Array([controller] => page[action] =>  )
      *
-     * Router::add(['news/view'=>['controller'=>'news', 'action'=>'view']]);
+     * Router::add(['form/index'=>['controller'=>'form', 'action'=>'index']]);
      */
     public static function add($route)
     {

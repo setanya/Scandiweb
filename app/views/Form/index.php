@@ -26,7 +26,7 @@
                     <option></option>
                         <?foreach ($category as $value):?>
 
-                            <option  value="<?=$value['id'];?>"><?=$value['category'];?></option>
+                            <option  value="<?=$value['value'];?>"><?=$value['category'];?></option>
                         <?endforeach;?>
                 </select><br>
                 <?if(isset($_POST['type']) && ($_POST['type'] ==="")):?>
@@ -60,14 +60,14 @@
                             <p style="padding-top: 10px"><b>"Product description"</b></p>
                         </div>
                     </div>
-                    <?if(($_POST['type'] == 1) && empty($_POST['size'])):?>
-                        <p style="color:red;"><? echo 'Please, provide dimensions';?></p>
+                    <?if(($_POST['type'] == "Size") && empty($_POST['size'])):?>
+                        <p style="color:red;"><? echo 'Please, provide size';?></p>
                     <?endif;?>
-                    <?if(($_POST['type'] == 2) && empty($_POST['weight'])):?>
+                    <?if(($_POST['type'] == "Weight") && empty($_POST['weight'])):?>
                         <p style="color:red;"><? echo 'Please, provide weight';?></p>
                     <?endif;?>
-                    <?if(($_POST['type'] == 3) && (empty($_POST['height']) && empty($_POST['width']) && empty($_POST['length']))):?>
-                            <p style="color:red;"><? echo 'Please, provide size';?></p>
+                    <?if(($_POST['type'] == 'Dimension') && (empty($_POST['height']) && empty($_POST['width']) && empty($_POST['length']))):?>
+                            <p style="color:red;"><? echo 'Please, provide dimensions';?></p>
                     <?endif;?>
                 </div>
             </form>

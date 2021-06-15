@@ -22,7 +22,7 @@ abstract class Controller
      */
     public function getView()
     {
-     $objView = new View($this->route, $this->layout, $this->view);//
+     $objView = new View($this->route, $this->layout, $this->view);
      $objView->render($this->vars);//
 
     }

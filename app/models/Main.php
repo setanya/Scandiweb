@@ -9,4 +9,5 @@ use system\core\Model;
 class Main extends Model
 {
     public $table = 'type';
+
 }

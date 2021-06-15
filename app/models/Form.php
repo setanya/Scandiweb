@@ -11,6 +11,4 @@ class form extends Model
 
     public $table = 'products';
 
-
-
 }

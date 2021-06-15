@@ -42,47 +42,23 @@ abstract class Model
        return count($arr);
     }
 
-    /** record DVD
+    /**add Product to the database
      * @param $sku
      * @param $name
      * @param $price
      * @param $types
      * @param $size
-     * @return bool
-     */
-    public function addDvd($sku, $name, $price, $types, $size)
-    {
-        $sql = "INSERT INTO {$this->table} SET `sku` = '$sku', `name` = '$name', `price` = '$price', `id_type` = '$types', `size` = '$size'";
-
-        return $this->db->exec($sql,[$sku, $name, $price, $types, $size]);
-    }
-    /** record Book
-     * @param $sku
-     * @param $name
-     * @param $price
-     * @param $types
      * @param $weight
-     * @return bool
-     */
-    public function addBook($sku, $name, $price, $types, $weight){
-        $sql = "INSERT INTO {$this->table} SET `sku` = '$sku', `name` = '$name', `price` = '$price', `id_type` = '$types', `weight` = '$weight'";
-
-        return $this->db->exec($sql,[$sku, $name, $price, $types, $weight]);
-    }
-    /** record Furniture
-     * @param $sku
-     * @param $name
-     * @param $price
-     * @param $types
      * @param $height
      * @param $width
      * @param $length
      * @return bool
      */
-    public function addFurniture($sku, $name, $price, $types, $height, $width, $length){
-        $sql = "INSERT INTO {$this->table} SET `sku` = '$sku', `name` = '$name', `price` = '$price', `id_type` = '$types', `height` = '$height', `width` = '$width', `length` = '$length'";
+        public function addProduct($sku, $name, $price, $types, $size, $weight, $height, $width, $length)
+    {
+        $sql = "INSERT INTO {$this->table} SET `sku` = '$sku', `name` = '$name', `price` = '$price', `type` = '$types', `size` = '$size MB', `weight` = '$weight KG', `height` = '$height', `width` = '$width', `length` = '$length'";
 
-        return $this->db->exec($sql,[$sku, $name, $price, $types, $height, $width, $length]);
+        return $this->db->exec($sql,[$sku, $name, $price, $types, $size, $weight, $height, $width, $length]);
     }
 
     /**
@@ -104,4 +80,36 @@ abstract class Model
         $sql = "DELETE FROM {$this->table} WHERE id IN ($place)";
         return $this->db->exec($sql, $id);
     }
+
+    /** getting an object  Dvd
+     * @param $tip
+     * @return array
+     */
+    public function getDvdId($tip){
+        $sql ="SELECT `id`,`sku`,`name`,`price`,`type`,`size` AS value_tip FROM {$this->table} WHERE `type`= ?";
+
+        return $this->db->query($sql,[$tip]);
+    }
+
+    /**getting an object Book
+     * @param $tip
+     * @return array
+     */
+    public function getBookId($tip){
+        $sql ="SELECT `id`,`sku`,`name`,`price`,`type`,`weight` AS value_tip FROM {$this->table} WHERE `type`= ?";
+
+        return $this->db->query($sql,[$tip]);
+    }
+
+    /**getting an object Furniture
+     * @param $tip
+     * @return array
+     */
+    public function getFurnitureId($tip){
+        $sql ="SELECT `id`,`sku`,`name`,`price`,`type`, CONCAT( `height`,' x ', `width`,' x ', `length`) AS value_tip FROM {$this->table} WHERE `type`= ?";
+
+        return $this->db->query($sql,[$tip]);
+    }
+
+
 }

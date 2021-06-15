@@ -4,17 +4,19 @@
 namespace app\controllers;
 
 use app\models\Form;
-use app\models\Main;
 
 class MainController extends AppController
 {
     public function indexAction(){
 
         $product = new Form();
-        $allProduct =$product->findAll();
 
-        $types = new Main;
-        $category = $types->findAll();
+        $dvd = $product ->getDvdId("Size");
+        $book = $product->getBookId("Weight");
+        $furniture = $product->getFurnitureId("Dimension");
+        $arrItem = array_merge($dvd , $book, $furniture);
+
+        usort($arrItem, function ($a, $b){ return $a["id"] - $b["id"]; });
 
         if(isset($_POST['delete']) && isset($_POST['checkbox']) && $_POST['checkbox'] != "")
         {
@@ -26,7 +28,7 @@ class MainController extends AppController
             header("Location: /");
               die();
         }
-        $this->setVars(['product'=>$allProduct, 'category'=>$category]);
+        $this->setVars(['arrProduct'=>$arrItem]);
     }
 
 

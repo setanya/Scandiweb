@@ -34,7 +34,7 @@ class View
       if(file_exists($path_view)){
           require $path_view;
       }else{
-          echo 'Представление '. $path_view. '  не найдено';
+          echo 'View '. $path_view. '  not found';
       }
        $content = ob_get_clean();
         if( $this->layout !==false)
@@ -44,7 +44,7 @@ class View
             {
                 require  $path_layout;
             }else{
-                echo 'шаблон  '.$this->layout.'  не найден';
+                echo 'Pattern  '.$this->layout.'  not found';
             }
         }else{
             echo $content;
